@@ -1,0 +1,48 @@
+.bottom {
+  border-top: 1px solid #244669;
+  padding-top: 63px;
+  display: flex;
+  color: #a0aeb9;
+  padding-bottom: 100px; }
+  .bottom .bottom-box {
+    width: 338px;
+    height: 200px;
+    padding-top: 40px; }
+  .bottom .bottom-box.l {
+    text-align: center; }
+    .bottom .bottom-box.l p {
+      margin-bottom: 40px; }
+    .bottom .bottom-box.l > div {
+      display: flex;
+      justify-content: center; }
+      .bottom .bottom-box.l > div > div {
+        margin-right: 20px; }
+        .bottom .bottom-box.l > div > div span:first-child {
+          display: block;
+          font-size: 26px; }
+      .bottom .bottom-box.l > div > div:last-child {
+        margin: 0; }
+  .bottom .bottom-box.m {
+    border-left: 1px solid #244669;
+    border-right: 1px solid #244669;
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 16px; }
+    .bottom .bottom-box.m p:first-child {
+      margin-bottom: 20px;
+      text-align: center; }
+    .bottom .bottom-box.m p:nth-child(2) {
+      margin-bottom: 30px; }
+    .bottom .bottom-box.m span.fa {
+      color: #00aeff;
+      font-size: 24px;
+      padding: 0 5px; }
+  .bottom .bottom-box.r {
+    display: flex; }
+    .bottom .bottom-box.r img:first-child {
+      width: 93px;
+      height: 80px;
+      margin: 0 40px; }
+    .bottom .bottom-box.r img:last-child {
+      width: 161px;
+      height: 60px; }

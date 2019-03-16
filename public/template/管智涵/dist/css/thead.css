@@ -1,0 +1,115 @@
+.active {
+  color: #00aeff !important; }
+
+.top {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  line-height: 30px; }
+  .top .container span:nth-child(2) {
+    color: #00aeff; }
+    .top .container span:nth-child(2) ~ a {
+      color: #00aeff; }
+  .top .container > ul {
+    float: right; }
+    .top .container > ul > li {
+      padding: 0 4px;
+      text-align: center; }
+      .top .container > ul > li > ul {
+        display: none; }
+        .top .container > ul > li > ul li {
+          float: none;
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid #374254;
+          text-align: center; }
+          .top .container > ul > li > ul li a {
+            display: inline-block;
+            width: 56px; }
+    .top .container > ul li:nth-child(5):hover span:before {
+      content: "\f107"; }
+    .top .container > ul li:nth-child(5):hover > ul {
+      display: block; }
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px; }
+  .header .container .search label input {
+    border: none;
+    border-bottom: 1px solid #33669b;
+    width: 270px;
+    background-color: transparent;
+    height: 21px; }
+  .header .container .search label span {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.3); }
+  .header .container .search span {
+    color: rgba(255, 255, 255, 0.3);
+    margin-left: 10px;
+    font-size: 20px;
+    position: relative; }
+    .header .container .search span span#shop-count {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ed871d;
+      right: -14px;
+      top: -10px;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      line-height: 20px; }
+
+.nav, .nav_slider {
+  height: 40px;
+  background: #140c4b;
+  border-bottom: 2px solid #211761;
+  position: relative; }
+  .nav .container, .nav_slider .container {
+    height: 40px; }
+    .nav .container > ul, .nav_slider .container > ul {
+      display: flex;
+      flex-grow: 1; }
+      .nav .container > ul > li, .nav_slider .container > ul > li {
+        width: 120px;
+        text-align: center;
+        line-height: 40px; }
+        .nav .container > ul > li a, .nav_slider .container > ul > li a {
+          color: #cfd2d7;
+          font-size: 14px;
+          font-weight: 700;
+          padding-bottom: 4px; }
+        .nav .container > ul > li .sub-nav, .nav_slider .container > ul > li .sub-nav {
+          position: absolute;
+          display: none;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          left: 0;
+          z-index: 5;
+          cursor: pointer; }
+          .nav .container > ul > li .sub-nav ul, .nav_slider .container > ul > li .sub-nav ul {
+            width: 900px;
+            display: flex;
+            margin: 0 auto;
+            padding: 30px 0;
+            flex-wrap: wrap; }
+            .nav .container > ul > li .sub-nav ul li, .nav_slider .container > ul > li .sub-nav ul li {
+              width: 110px;
+              height: 100px;
+              color: #fff; }
+              .nav .container > ul > li .sub-nav ul li img, .nav_slider .container > ul > li .sub-nav ul li img {
+                margin: 0 auto; }
+            .nav .container > ul > li .sub-nav ul li:hover p, .nav_slider .container > ul > li .sub-nav ul li:hover p {
+              color: #00aeff; }
+      .nav .container > ul > li:hover > .sub-nav, .nav_slider .container > ul > li:hover > .sub-nav {
+        display: block; }
+      .nav .container > ul > li:hover a, .nav_slider .container > ul > li:hover a {
+        color: #00aeff;
+        border-bottom: 1px solid #00aeff; }
+
+.nav_slider.slider {
+  position: fixed;
+  top: -40px;
+  width: 100%;
+  z-index: 10; }

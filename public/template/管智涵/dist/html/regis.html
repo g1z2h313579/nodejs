@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/regis.css">
+</head>
+<body>
+    <div class="content">
+        <form type="validate">
+            <h2>欢迎注册网易暴雪商城账号</h2>
+            <label><span class="fa fa-user-o"></span>
+                <input type="text" id="userName" placeholder="账号6-10位数组字母下划线" valType="USER" msg="<font color=red>*</font>账号格式不正确">
+            </label>
+            <label><span class="fa fa-lock"></span>
+                <input type="text" id="passWord" placeholder="密码">
+            </label>
+            <label><span class="fa fa-lock"></span>
+                <input type="text" id="agPass" placeholder="重复密码">
+            </label>
+            <label><span class="fa fa-phone"></span>
+                <input type="text" id="phone" placeholder="手机号" valType="MOBILE" msg="<font color=red>*</font>手机格式不正确">
+            </label>
+            <label><span class="fa fa-envelope"></span>
+                <input type="text" id="email" placeholder="邮箱" valType="MAIL" msg="<font color=red>*</font>电子邮箱格式不正确">
+            </label>
+            <button id="submit">注&nbsp;&nbsp;册</button>
+        </form>
+    </div>
+    <div class="footer"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/jquery.poshytip.js"></script>
+<script src="../js/jq.validate.js"></script>
+<script src="../js/regis.js"></script>
+</html>

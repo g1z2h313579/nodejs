@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            margin-bottom: 10px;
+        }        
+    </style>
+</head>
+<body>
+    <button>拿数据库数据啦！！</button>
+    <div id="storm"></div>
+    <div id="user" style="float:right">
+        <h2>能够从后台实时推送的用户数据(socket真牛逼！)</h2>
+        <ul></ul>
+    </div>
+</body>
+<script src="../js/jquery2.2.4.js"></script>
+<script src="../js/portconfig.js"></script>
+<script src="../js/socket.io.js"></script>
+<script type="text/javascript">
+let data = "user"
+let str = ''
+$.ajax({
+    url : "/customer/demo",
+    data : {data},
+    success : function(res){
+        // console.log(res);
+        res.forEach((val)=>{
+            let tmp = '';
+            for(let i in val){
+                tmp += `&nbsp;&nbsp;<span>${i} : ${val[i]}</span>&nbsp;&nbsp;`
+            }
+            // str += `<li>${tmp}</li><br>`
+            $("<li>").html(tmp).appendTo($("#user").find("ul"))
+            // $("#user").find("ul").append(str)
+        })
+    },
+    error : function(err){
+        console.log(err)
+    }
+})
+
+
+
+
+
+
+$("button").click(function(){
+    data = "stormdata"
+        $.ajax({
+            url:"/customer/demo",
+            data:{data},
+            success : function(res){
+                let tmp = '';
+                res[0].gameName[0].全部.forEach((val)=>{
+                    for(let i in val){
+                        tmp += i + "&nbsp;&nbsp;:&nbsp;&nbsp;" + val[i] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                    }
+                    tmp += "<br>"
+                })
+                $("#storm").html(tmp)
+                console.log(res)
+            },
+            error : function(err){
+                console.log(err)
+            }
+        })
+    })
+
+
+
+
+    var socket = io(port.localport);
+
+
+    socket.on('update',(res)=>{
+        // console.log("收到",res.data);
+        let tmp = '';
+        for(let i in res.data){
+            tmp += `<span>${i} : ${res.data[i]}</span> `
+        }
+        $("<li>").html(tmp).appendTo($("#user").find("ul"))
+        
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
+
+

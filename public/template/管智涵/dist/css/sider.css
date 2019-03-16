@@ -1,0 +1,28 @@
+.orge {
+  color: #ff8900 !important; }
+
+.grey {
+  color: #b1bcd2 !important; }
+
+.sider {
+  position: fixed;
+  right: 0;
+  bottom: 100px; }
+  .sider ul li {
+    float: none;
+    width: 156px;
+    height: 50px;
+    border-bottom: 1px solid #00aeff;
+    border-left: 1px solid #00aeff;
+    border-right: 1px solid #00aeff;
+    line-height: 50px;
+    text-align: center;
+    background-color: #002958; }
+    .sider ul li span {
+      font-size: 20px;
+      padding: 0 8px; }
+    .sider ul li a {
+      font-size: 16px;
+      color: #00aeff; }
+  .sider ul li:first-child {
+    border-top: 1px solid #00aeff; }

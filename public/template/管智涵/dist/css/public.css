@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  box-sizing: border-box; }
+
+.left {
+  float: left; }
+
+h2 {
+  font-size: 18px; }
+
+ul:after {
+  content: '';
+  height: auto;
+  display: block;
+  clear: both; }
+
+li {
+  list-style: none;
+  float: left; }
+
+.grey {
+  color: #7f93a9; }
+
+a {
+  text-decoration: none;
+  color: #7a92ac; }
+
+.clearfix:after {
+  content: '';
+  height: auto;
+  display: block;
+  clear: both; }
+
+.container {
+  margin: 0 auto;
+  width: 1090px; }
+
+img {
+  display: block; }
+
+body {
+  background: url("../img/hxm_b2c-web_p_20150730_static_media_bg-main.531304ac.png") fixed; }

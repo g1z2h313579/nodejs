@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>node 管理后台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="page">
+      <!-- Main Navbar-->
+      <% include ./common/header.ejs %>
+      <div class="page-content d-flex align-items-stretch"> 
+        <!-- Side Navbar -->
+        <% include ./common/siderbar.ejs %>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <% include ./common/bread.ejs %>
+          <section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="form-group">
+                            <div class="input-group">
+                              <input id="search_input" type="text" class="form-control value="<%= query.search ? query.search : ''%>"">
+                              <div class="input-group-append">
+                                <button id="search_btn" type="button" class="btn btn-primary ">搜索</button>
+                                <button id="search_all_btn" type="button" class="btn btn-success ">显示全部</button>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                        <div class="col-2"><a  class="btn btn-info" href="product_add.html" role="button">添加</a></div>
+                        <div class="col-2">
+                          <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              排序
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">标题</a>
+                              <a class="dropdown-item" href="#">发布时间</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>标题</th>
+                              <th>作者</th>
+                              <th>操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                           <% for(let i = 0; i < dbdata.length; i++){ %>
+                            <tr>
+                              <th scope="row"><%= dbdata[i].title  %></th>
+                              <td><%= dbdata[i].auth  %></td>
+                              <td>
+                                <a name="" id="" class="btn btn-danger small" href="/admin/product.html?<%= query.p ? 'p=' + query.p + '&' + 'id=' + dbdata[i]._id + '&' + 'doc=del' : 'id=' + dbdata[i]._id + '&' + 'doc=del'%>">删除</a>
+                                <a name="" id="" class="btn btn-dark small" href="/admin/product_add.html?<%= query.p ? 'p=' + query.p + '&' + 'id=' + dbdata[i]._id + '&' + 'doc=chan' : 'id=' + dbdata[i]._id + '&' + 'doc=chan'%>" role="button">修改</a>
+                              </td>
+                            </tr>
+                           <%}%>
+
+                           <%if(dbdata.length <= 0){  %>
+                              <tr>
+                                <td colspan="3"><span class="badge badge-dark">无数据</span></td>
+                              </tr>
+                             <%}%>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <nav aria-label="...">
+                        <ul class="pagination small">
+                          
+                          <li class="page-item <%= userP.page_start == 0 ? 'disabled' : ''%>">
+                            <a class="page-link" href="<%='/admin/product.html?' + curUrl + '&' + 'p=' + (userP.page_start-0  - 1) %>">上一页</a>
+                          </li>
+                          <% for(let i = 1; i <= Math.ceil(result.length/userP.page_count);i++){%>
+                          <li class="page-item <%= userP.page_start == i-1 ? 'active' : ''%>">
+                            <a class="page-link" href="<%='/admin/product.html?' + curUrl + '&' + 'p=' + (i-1) %>"><%= i %></a>
+                          </li>
+                          <%}%>
+                          <li class="page-item <%= userP.page_start == Math.ceil(result.length/userP.page_count) - 1 ? 'disabled' : ''%>">
+                            <a class="page-link" href="<%='/admin/product.html?' + curUrl + '&' + 'p=' + (userP.page_start-0 + 1) %>">下一页</a>
+                          </li>
+                          
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>九叔去哪儿科技股份有限没责任公司 &copy; 2019-ever</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Design by Bootstrapious.More uncle9 <a href="https://www.uncle9.top/" target="_blank" title="模板之家">不拉拉</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">后台管理</a></p>
+                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- <script src="vendor/jquery.cookie/jquery.cookie.js"> </script> -->
+    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
+    <!-- <script src="vendor/jquery-validation/jquery.validate.min.js"></script> -->
+
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+
+    <script>
+      $("#search_btn").click(function(){
+        // $("#search_input").val()
+        // console.log(window.location.href);
+        if(!window.location.href.includes("search=")){
+            // console.log(111111111111)
+            if(window.location.href.includes("?")){
+                if(window.location.href.includes("p=")){
+                    let tmp = window.location.href + "&" + "search=" + $("#search_input").val();
+                    let tmp2 = tmp.replace(/p=[\w]*/g,"p=0");
+                    window.location.href = tmp2
+                }else{
+                    window.location.href += "&" + "search=" + $("#search_input").val()
+                }
+            }else{
+                window.location.href += "?" + "search=" + $("#search_input").val() 
+            }
+
+            
+        }else if($("#search_input").val() !== ''){
+            // console.log(2222222222)
+            let tmp = window.location.href.replace(/search=[\w]*/g,"search=" + $("#search_input").val());
+            let tmp2 = ''
+            if(tmp.includes('p=')){
+                tmp2 = tmp.replace(/p=[\w]*/g,"p=0");
+                // alert(tmp2)
+                window.location.href = tmp2
+                
+            }else{
+                window.location.href = tmp;
+            }
+            
+        }else{
+            let tmp = window.location.href.replace(/search=[\w]*/g,"");
+            let tmp2 = ''
+            if(tmp.includes('p=')){
+                tmp2 = tmp.replace(/p=[\w]*/g,"p=0");
+                // alert(tmp2)
+                window.location.href = tmp2
+                
+            }else{
+                window.location.href = tmp;
+            }
+        }
+    })
+
+
+
+    $("#search_all_btn").click(function(){
+        window.location.href = window.location.href.includes("?") ? window.location.href += "&show=all" : window.location.href + "?show=all"
+
+
+    })
+
+    
+    
+    </script>
+  </body>
+</html>

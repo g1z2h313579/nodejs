@@ -1,0 +1,94 @@
+.foot {
+  color: #fff;
+  background: #1a1a1a;
+  padding-top: 60px; }
+  .foot .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+  .foot ul {
+    display: flex;
+    flex-grow: 1; }
+  .foot ul:first-child {
+    padding-left: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #2c2c2c; }
+    .foot ul:first-child li {
+      width: 22%;
+      line-height: 56px;
+      padding-left: 60px; }
+      .foot ul:first-child li span {
+        float: left;
+        margin-right: 20px; }
+  .foot ul:last-child {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    height: 100px;
+    padding: 0 107px; }
+    .foot ul:last-child li {
+      text-align: center;
+      padding: 0px 20px;
+      border-right: 1px solid #fff;
+      height: 18px; }
+
+html, body {
+  height: 100%; }
+
+.content {
+  background-image: url(../img/loginbg.jpg);
+  height: 100%; }
+  .content form {
+    position: absolute;
+    right: 320px;
+    top: 140px;
+    width: 362px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 3px; }
+    .content form h2 {
+      color: #666;
+      border-bottom: 1px solid #efefef;
+      line-height: 40px;
+      margin-bottom: 40px;
+      font-weight: 400; }
+    .content form label {
+      position: relative;
+      height: 32px;
+      width: 312px;
+      margin-bottom: 20px;
+      display: block; }
+      .content form label span {
+        position: absolute;
+        left: 10px;
+        top: 6px;
+        font-size: 20px;
+        color: #c5cddb; }
+      .content form label input {
+        width: 312px;
+        height: 32px;
+        border: 1px solid #c5cddb;
+        background-color: #fff;
+        padding-left: 34px; }
+      .content form label input:focus {
+        outline-color: #00aeff; }
+    .content form button {
+      background-color: #00aeff;
+      width: 100%;
+      text-align: center;
+      line-break: 20px;
+      height: 40px;
+      font-size: 20px;
+      color: #fff;
+      border: none;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    .content form span.regis {
+      float: right; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
